@@ -87,7 +87,7 @@ def style_background_dashboard():
                 <style>
                 
                     .stApp{
-                        background:#FAFFCB !important;
+                        background:#CFECF3 !important;
                         
                     }
                 
