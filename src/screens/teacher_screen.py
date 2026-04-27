@@ -14,14 +14,27 @@ def teacher_screen():
 
     if 'teacher_login_type' not in st.session_state:
         st.session_state['teacher_login_type'] = None
+    
+    if 'teacher_data' not in st.session_state:
+        st.session_state['teacher_data'] = None
+
+    if 'user_role' not in st.session_state:
+        st.session_state['user_role'] = None
+
+    if 'is_logged_in' not in st.session_state:
+        st.session_state['is_logged_in'] = False
+
+
 
     match st.session_state['teacher_login_type']:
         case "register":
             screen.teacher_register_screen()
         case "login":
             screen.teacher_login_screen()
+        case "dashboard":
+            st.header(f'Welcome,{st.session_state['teacher_data']['username']}')
         case None:
-            st.session_state['teacher_login_type'] = "register"
+            st.session_state['teacher_login_type'] = "login"
             st.rerun()
 
     footer_home()

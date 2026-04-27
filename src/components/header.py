@@ -54,8 +54,18 @@ def header_teacher():
             st.session_state["login_type"] = None
             st.session_state["teacher_login_type"] = None
             st.rerun()
-
-    st.markdown("""
-    <div style="text-align:center; margin-top:10px">
-    <h4>Register Your Teacher Profile</h4></div>
-    """, unsafe_allow_html=True) 
+    if st.session_state['teacher_login_type']=="register":
+        st.markdown("""
+        <div style="text-align:center; margin-top:10px">
+        <h4>Register Your Teacher Profile</h4></div>
+        """, unsafe_allow_html=True)
+    elif st.session_state['teacher_login_type']=="login":
+        st.markdown("""
+        <div style="text-align:center; margin-top:10px">
+        <h4>Login Your Teacher Profile</h4></div>
+        """, unsafe_allow_html=True) 
+    elif st.session_state['teacher_login_type']=="dashboard":
+        st.markdown("""
+        <div style="text-align:center; margin-top:10px">
+        <h4>Teacher Dashboard</h4></div>
+        """, unsafe_allow_html=True) 
