@@ -73,9 +73,9 @@ def predict_attendance(class_image_np):
     if not model:
         return detected_students,[],len(encodings)
 
-    clf=model_data["clf"]
-    X_train=model_data["X"]
-    y_train=model_data["y"]
+    clf=model["clf"]
+    X_train=model["X"]
+    y_train=model["y"]
     
     all_students=sorted(list(set(y_train)))
 

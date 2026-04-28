@@ -14,3 +14,9 @@ bcrypt
 
 segno
 pillow
+
+librosa
+
+torch --index-url https://download.pytorch.org/whl/cpu
+webrtcvad-wheels
+resemblyzer --no-deps
