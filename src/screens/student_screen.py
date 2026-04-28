@@ -11,5 +11,12 @@ def student_screen():
     style_background_dashboard()
 
     screen=StudentScreenLayout()
-    screen.StudentLogin()
+
+    match (st.session_state.get("is_logged_in"), st.session_state.get("user_role")):
+        case (True, "student"):
+            screen.student_dashboard()
+
+        case _ if not st.session_state.get("is_logged_in"):
+            screen.StudentLogin()
+    
     footer_home()

@@ -9,22 +9,25 @@ def main():
     if 'login_type' not in st.session_state:
         st.session_state['login_type'] = None
 
-    # Teacher register/login/dashboard type
-    if 'teacher_login_type' not in st.session_state:
-        st.session_state['teacher_login_type'] = None
-    
-    # Teacher/Student data
-    if 'teacher_data' not in st.session_state:
-        st.session_state['teacher_data'] = None
-
     # User role
     if 'user_role' not in st.session_state:
         st.session_state['user_role'] = None
 
+    # Teacher register/login/dashboard type
+    if 'teacher_login_type' not in st.session_state:
+        st.session_state['teacher_login_type'] = None
+    
+    # Teacher data
+    if 'teacher_data' not in st.session_state:
+        st.session_state['teacher_data'] = None
+
     if 'is_logged_in' not in st.session_state:
         st.session_state['is_logged_in'] = False
 
-        
+    # Student data
+    if 'student_data' not in st.session_state:
+        st.session_state['student_data'] = None
+
     match st.session_state["login_type"]:
         case "teacher":
             teacher_screen()

@@ -1,4 +1,5 @@
 from src.database.config import Supabase
+import streamlit as st
 
 import bcrypt
 
@@ -31,5 +32,10 @@ def teacher_login(username,password):
 
 def get_all_students():
     response=Supabase.table("students").select("*").execute()
+    return response.data
+
+def create_student(name,face_embedding=None,voice_embedding=None):
+    data={"name":name,"face_embedding":face_embedding,"voice_embedding":voice_embedding}
+    response=Supabase.table("students").insert(data).execute()
     return response.data
         

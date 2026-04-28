@@ -106,4 +106,8 @@ def header_student():
         if st.button(label="Go Back To Home Page", key="logout", type="secondary", shortcut="Ctrl+Backspace"):
             st.session_state["login_type"] = None
             st.session_state["teacher_login_type"] = None
+            #student Session    
+            st.session_state.is_logged_in = False
+            st.session_state.user_role = None
+            st.session_state.student_data = None 
             st.rerun()

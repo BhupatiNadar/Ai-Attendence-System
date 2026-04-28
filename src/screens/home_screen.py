@@ -9,8 +9,7 @@ from src.components.footer import footer_home
 base_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 student_logo_path = os.path.join(base_path, "src", "assets", "student.png")
 teacher_logo_path=os.path.join(base_path,"src","assets","teacher.png")
-img = Image.open(teacher_logo_path)
-teacher_logo_path = img.resize((270, 250))
+teacher_img = Image.open(teacher_logo_path).resize((270, 250))
 
 def home_screen():
     header_home()
@@ -23,7 +22,7 @@ def home_screen():
     
     with col1:
         st.subheader("I'm Teacher")
-        st.image(teacher_logo_path,width=270)
+        st.image(teacher_img, width=270)
         if st.button("Teacher Portal", type="primary", icon=":material/arrow_outward:",icon_position='right'):
             st.session_state["login_type"]="teacher"
             st.rerun()
