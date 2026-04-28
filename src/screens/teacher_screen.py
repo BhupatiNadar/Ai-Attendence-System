@@ -12,20 +12,6 @@ def teacher_screen():
 
     screen=teacher_screen_layout()
 
-    if 'teacher_login_type' not in st.session_state:
-        st.session_state['teacher_login_type'] = None
-    
-    if 'teacher_data' not in st.session_state:
-        st.session_state['teacher_data'] = None
-
-    if 'user_role' not in st.session_state:
-        st.session_state['user_role'] = None
-
-    if 'is_logged_in' not in st.session_state:
-        st.session_state['is_logged_in'] = False
-
-
-
     match st.session_state['teacher_login_type']:
         case "register":
             screen.teacher_register_screen()
