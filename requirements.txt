@@ -12,7 +12,7 @@ setuptools
 supabase
 bcrypt
 
-segno
+segno # for qr code generation
 pillow
 
 librosa

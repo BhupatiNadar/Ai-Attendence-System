@@ -88,9 +88,11 @@ def style_background_dashboard():
                 
                     .stApp{
                         background:#CFECF3 !important;
-                        
                     }
-                
+
+                    h2{
+                        font-size:2rem !important;
+                    }
                 </style>
                 """,unsafe_allow_html=True)
     
