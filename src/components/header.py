@@ -114,11 +114,15 @@ def header_student():
 
     with col2:
         st.markdown("<div style='margin-top:40px;'></div>", unsafe_allow_html=True)
-        if st.button(label="Go Back To Home Page", key="logout", type="secondary", shortcut="Ctrl+Backspace"):
-            st.session_state["login_type"] = None
-            st.session_state["teacher_login_type"] = None
-            #student Session    
-            st.session_state.is_logged_in = False
-            st.session_state.user_role = None
-            st.session_state.student_data = None 
-            st.rerun()
+        if st.session_state['student_data'] is  None:
+            if st.button(label="Go Back To Home Page", key="logout", type="secondary", shortcut="Ctrl+Backspace"):
+                st.session_state["login_type"] = None
+                st.session_state.is_logged_in = False
+                st.rerun()
+        else:
+            if st.button(label="Logout", key="logout", type="secondary", shortcut="Ctrl+Backspace"):
+                st.session_state["login_type"] = None
+                st.session_state['is_logged_in']=False
+                st.session_state.student_data = None
+                st.rerun()
+            

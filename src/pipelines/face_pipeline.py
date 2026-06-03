@@ -96,7 +96,7 @@ def predict_attendance(class_image_np):
     
     all_students=sorted(list(set(y_train)))
 
-    resemblance_threshold=0.75
+    resemblance_threshold=0.55  
 
     for encoding in encodings:
         best_id = None
@@ -104,11 +104,12 @@ def predict_attendance(class_image_np):
 
         if clf is not None and len(all_students) >= 2:
             predicted_id=int(clf.predict([encoding])[0])
-            idx = y_train.index(predicted_id)
-            dist = np.linalg.norm(np.array(X_train[idx]) - np.array(encoding))
-            if dist < best_dist:
-                best_dist = dist
-                best_id = predicted_id
+            for i, emb in enumerate(X_train):
+                if y_train[i] == predicted_id:
+                    dist = np.linalg.norm(np.array(emb) - np.array(encoding))
+                    if dist < best_dist:
+                        best_dist = dist
+                        best_id = predicted_id
         else:
             for i, emb in enumerate(X_train):
                 dist = np.linalg.norm(np.array(emb) - np.array(encoding))
