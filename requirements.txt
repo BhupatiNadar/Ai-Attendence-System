@@ -1,10 +1,10 @@
-streamlit 
+streamlit
 numpy
-pandas 
-matplotlib 
+pandas
+matplotlib
 seaborn
-
 scikit-learn
+
 dlib-bin
 git+https://github.com/ageitgey/face_recognition_models.git
 setuptools
@@ -12,14 +12,13 @@ setuptools
 supabase
 bcrypt
 
-segno # for qr code generation
+segno
 pillow
 
 librosa
 
-torch --index-url https://download.pytorch.org/whl/cpu
+torch==2.7.1
 webrtcvad-wheels
-resemblyzer --no-deps
+resemblyzer
 
-# ngrok http 8501
 pyngrok
