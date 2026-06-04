@@ -6,7 +6,7 @@ import io
 
 @st.dialog("Share Class Link")
 def share_subject_dialog(sub_name,sub_code):
-    app_domain="http://localhost:8501/"
+    app_domain="ai-attendance-make-attendence-faster.streamlit.app"
     join_url=f"{app_domain}?join-code={sub_code}"
 
     st.header(f"Scan QR Code to Join")
