@@ -1,26 +1,25 @@
-streamlit
+streamlit 
 numpy
-pandas
-matplotlib
+pandas 
+matplotlib 
 seaborn
+
 scikit-learn
-
-setuptools==69.5.1
-wheel
-
 dlib-bin
-face-recognition-models
+git+https://github.com/ageitgey/face_recognition_models.git
+setuptools
 
 supabase
 bcrypt
 
-segno
+segno # for qr code generation
 pillow
 
 librosa
 
-torch
+torch --index-url https://download.pytorch.org/whl/cpu
 webrtcvad-wheels
-resemblyzer
+resemblyzer --no-deps
 
+# ngrok http 8501
 pyngrok
