@@ -6,6 +6,9 @@ from src.screens.teacher_screen import teacher_screen
 from src.components.auto_enroll_dialog import auto_enroll_dialog
 
 def main():
+    st.set_page_config(
+        page_title='Ai Attendence system make Attendance faster'
+    )
     # Teacher/Student login type
     if 'login_type' not in st.session_state:
         st.session_state['login_type'] = None

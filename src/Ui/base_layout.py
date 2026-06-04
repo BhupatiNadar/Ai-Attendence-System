@@ -6,9 +6,9 @@ def style_base_layout():
                 <style>
                     @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
                     @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-                    # #MainMenu,header,footer{
-                    #     visibility:hidden;
-                    # }
+                    #MainMenu,header,footer{
+                        visibility:hidden;
+                    }
                     
                     .block-container{
                         padding-top:1.5rem;
