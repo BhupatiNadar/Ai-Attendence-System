@@ -75,3 +75,16 @@ def get_student_subject(student_id):
 def get_student_attendance(student_id):
     res=Supabase.table("attendance_logs").select("*").eq("student_id",student_id).execute()
     return res.data
+
+def create_attendence(logs):
+    res=Supabase.table("attendance_logs").insert(logs).execute()
+    return res.data
+
+def get_attendance_for_teacher(teacher_id):
+    res = (
+        Supabase.table("attendance_logs")
+        .select("*, subjects!inner(*)")
+        .eq("subjects.teacher_id", teacher_id)
+        .execute()
+    )
+    return res.data

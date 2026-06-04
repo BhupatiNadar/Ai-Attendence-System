@@ -166,7 +166,7 @@ def student_dashboard():
             
         stats_map[sid]["total"]+=1
         
-        if logs.get('is_present'):
+        if log.get('ispresent'):
             stats_map[sid]['attended']+=1
             
         

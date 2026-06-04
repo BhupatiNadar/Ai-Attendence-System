@@ -21,8 +21,8 @@ def get_voice_embedding(audio_bytes):
         return None
 
 def identify_speaker(new_embedding,candidated_dict,threshold=0.65):
-    if not new_embedding or not candidated_dict:
-        return None,0.0
+    if new_embedding is None or len(candidated_dict) == 0:
+        return None, 0.0
     
     best_id=None
     best_score=-1.0
@@ -42,20 +42,22 @@ def identify_speaker(new_embedding,candidated_dict,threshold=0.65):
 def process_bulk_audio(audio_bytes,candidated_dict,threshold=0.65):
     try:
         encoder=load_voice_encoder()
-        audio,sr=librosa.load(io.BytesIO(audio_bytes))
-        segments=librosa.effects.split(audio,top_db=20,frame_length=2048,hop_length=512)
+        audio,sr=librosa.load(io.BytesIO(audio_bytes),sr=16000)
+        segments=librosa.effects.split(audio,top_db=30)
         identified_results={}
         for start,end in segments:
             if (end-start) < sr * 0.5:
                 continue
             segment_audio=audio[start:end]
-            wav=preprocess_wav(segment_audio,sr)
+            wav=preprocess_wav(segment_audio)
             embedding=encoder.embed_utterance(wav)
             
-            sid,score=identify_speaker(embedding,candidated_dict,threshold=threshold)
+            sid,score=identify_speaker(embedding,candidated_dict,threshold)
+            print(sid)
+            print(type(sid))
 
-            if sid:
-                if sid not in identify_speaker or score > identified_results[sid]:
+            if sid is not None:
+                if sid not in identified_results or score > identified_results[sid]:
                     identified_results[sid]=score
         return identified_results
 
