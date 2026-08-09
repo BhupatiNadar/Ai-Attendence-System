@@ -7,7 +7,7 @@ seaborn
 scikit-learn
 dlib-bin
 git+https://github.com/ageitgey/face_recognition_models.git
-setuptools<82
+setuptools==81.0.0
 
 supabase
 bcrypt
